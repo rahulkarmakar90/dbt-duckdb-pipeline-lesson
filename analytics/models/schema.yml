@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: job_postings
+    description: "Cleaned postings with relevant fields for analysis."
+    config:
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: job_id
+        description: "The unique identifier for the job posting."
+      - name: job_title
+        description: "The title of the job posting."
+      - name: company_name
+        description: "The company offering the job."
+      - name: job_location
+        description: "The location of the job."
+      - name: job_via
+        description: "The source through which the job posting was found."
+      - name: job_schedule_type
+        description: "The type of schedule for the job."
+      - name: job_work_from_home
+        description: "Indicates if the job allows working from home."
+      - name: search_date
+        description: "The date the job was searched for."
+      - name: search_term
+        description: "The term used to search for the job."
+
+
+  - name: jobs_per_month
+    description: "The number of job postings per month."
+    config:
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: month
+        description: "The month for which the job postings are counted."
+      - name: role
+        description: "The role for which the job postings are counted."
+      - name: postings
+        description: "The number of job postings in that month."
+
+
+  - name: top_locations
+    description: "The top locations for job postings."
+    config:
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: job_location
+        description: "The location of the job."
+      - name: postings
+        description: "The number of job postings in that location."
+
