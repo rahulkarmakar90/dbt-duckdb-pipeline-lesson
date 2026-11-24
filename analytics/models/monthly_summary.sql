@@ -10,7 +10,7 @@ remote as (
     where job_work_from_home = TRUE
     group by month
 )
-select month, total_postings, remote_postings, (remote_postings/total_postings) as remote_percentage
+select month, total_postings, remote_postings, round(remote_postings/total_postings, 2) as remote_percentage
 from totals
 join remote using (month)
 order by month
