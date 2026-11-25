@@ -1,0 +1,8 @@
+analytics:                          # ← NEW ENTRY STARTS HERE
+  outputs:
+    prod:                          # Production database (optional)
+      type: duckdb
+      path: analytics_prod.duckdb
+      threads: 4
+
+  target: prod  
