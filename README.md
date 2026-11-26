@@ -59,7 +59,7 @@ On each run, Actions:
 1. Installs deps with `uv`
 2. Downloads raw parquet
 3. Runs `dbt build` with the committed CI profile (prod)
-4. Publishes `prod.duckdb` as a GitHub Release asset
+4. Publishes `analytics_prod.duckdb` as a GitHub Release asset
 
 The badge at the top of this README links to the latest runs.
 
