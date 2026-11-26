@@ -16,4 +16,5 @@ data/
 logs/
 
 # dbt generated files
+docs/
 .user.yml

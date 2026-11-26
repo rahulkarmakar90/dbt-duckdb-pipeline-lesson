@@ -121,7 +121,6 @@ uv run dbt docs serve
 ├── .github/workflows/dbt_build.yml   # public CI: build, test, publish
 ├── ci/profiles.yml                   # prod DuckDB target for Actions
 ├── data/                             # raw + warehouses (gitignored; CI regenerates)
-├── docs/                             # dbt docs site (GitHub Pages)
 ├── analytics/
 │   ├── dbt_project.yml
 │   └── models/                       # sources, staging, marts, schema.yml

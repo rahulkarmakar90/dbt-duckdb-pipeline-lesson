@@ -6,12 +6,15 @@ on:
     - cron: '17 6 * * 1'    # Mondays — the pipeline runs while you sleep
   workflow_dispatch:        # …and a manual Run button
 permissions:
-  contents: write           # lets the workflow update the release
-  pages: write              # lets the workflow publish dbt docs
-  id-token: write           # required by the Pages deployment action
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write       # required to update the release
+      pages: write          # required to upload the Pages artifact
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -36,6 +39,10 @@ jobs:
   deploy-docs:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -4,7 +4,7 @@ WITH totals as (
     group by month
 ),
 remote as (
-    SELECT MONTHNAME(search_date) as month, 
+    SELECT DATE_TRUNC('month', search_date) as month,
     count(*) as remote_postings
     from {{ref('job_postings')}}
     where job_work_from_home = TRUE
